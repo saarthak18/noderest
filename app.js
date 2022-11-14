@@ -50,6 +50,24 @@ MongoClient.connect(mongoUrl,(err,client)=>{
 //         res.send(result);
 //     })
 // }) 
+app.get('/home/:dod',(req,res)=>{
+    
+    db.collection('dod').find().toArray((err,result)=>{
+        if(err) throw err;
+        res.send(result);
+    })
+
+})
+
+app.get('/home/:bom',(req,res)=>{
+    
+    db.collection('bom').find().toArray((err,result)=>{
+        if(err) throw err;
+        res.send(result);
+    })
+
+})
+
 
 
 app.get('/kids',(req,res)=>{
