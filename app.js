@@ -50,7 +50,7 @@ MongoClient.connect(mongoUrl,(err,client)=>{
 //         res.send(result);
 //     })
 // }) 
-app.get('/home/:dod',(req,res)=>{
+app.get('/homedod',(req,res)=>{
     
     db.collection('dod').find().toArray((err,result)=>{
         if(err) throw err;
@@ -59,7 +59,7 @@ app.get('/home/:dod',(req,res)=>{
 
 })
 
-app.get('/home/:bom',(req,res)=>{
+app.get('/homebom',(req,res)=>{
     
     db.collection('bom').find().toArray((err,result)=>{
         if(err) throw err;
@@ -67,6 +67,7 @@ app.get('/home/:bom',(req,res)=>{
     })
 
 })
+
 
 
 
