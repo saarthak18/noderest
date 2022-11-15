@@ -51,23 +51,36 @@ MongoClient.connect(mongoUrl,(err,client)=>{
 //     })
 // }) 
 app.get('/homedod',(req,res)=>{
-    
-    db.collection('dod').find().toArray((err,result)=>{
+    let query={};
+    let id=req.query.id;
+   if(id)
+   {
+    query={
+        id:id
+    }
+}
+    db.collection('dod').find(query).toArray((err,result)=>{
         if(err) throw err;
         res.send(result);
     })
 
 })
+
 
 app.get('/homebom',(req,res)=>{
+    let query={};
+    let id=req.query.id;
+    if(id)
+    {
+        query={id:id}
+    }
     
-    db.collection('bom').find().toArray((err,result)=>{
+    db.collection('bom').find(query).toArray((err,result)=>{
         if(err) throw err;
         res.send(result);
     })
 
 })
-
 
 
 
